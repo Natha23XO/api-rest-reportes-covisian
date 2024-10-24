@@ -1,0 +1,660 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.1.final using JasperReports Library version 6.20.1-7584acb244139816654f64e2fd57a00d3e31921e  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Reporte_Llamada" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a8ce4af8-c603-4204-8129-6018b75e7da2">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MySQL Data Adapter EFSRTV"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<parameter name="nroOrden" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[SELECT auditoriacovisianperu.auditores.apellido_auditor "evaluacion.auditor.apellidoAuditor",
+	auditoriacovisianperu.auditores.nombre_auditor "evaluacion.auditor.nombreAuditor",
+	auditoriacovisianperu.auditores.dni_auditor "evaluacion.auditor.dniAuditor",
+	auditoriacovisianperu.empleados.dni_empleado "empleado.dniEmpleado",
+	auditoriacovisianperu.empleados.nombre_empleado "empleado.nombreEmpleado",
+	auditoriacovisianperu.empleados.area "empleado.area",
+	auditoriacovisianperu.empleados.apellido_empleado "empleado.apellidoEmpleado",
+	auditoriacovisianperu.llamadas.numero_orden "numeroOrden",
+	auditoriacovisianperu.cliente.numero_cliente "cliente.numeroCliente",
+	auditoriacovisianperu.llamadas.estado "estado",
+	auditoriacovisianperu.cliente.dni_cliente "cliente.dniCliente",
+	auditoriacovisianperu.cliente.apellido_cliente "cliente.apellidoCliente",
+	auditoriacovisianperu.cliente.nombre_cliente "cliente.nombreCliente",
+	auditoriacovisianperu.llamadas.area "area",
+	auditoriacovisianperu.llamadas.subarea "subarea",
+	auditoriacovisianperu.llamadas.tipo "tipo",
+	auditoriacovisianperu.evaluaciones.fechahora "evaluacion.fechahora",
+	auditoriacovisianperu.evaluaciones.nota "evaluacion.nota",
+	auditoriacovisianperu.evaluaciones.observaciones_evaluacion "evaluacion.observacionesEvaluacion",
+	auditoriacovisianperu.llamadas.fechahora "fechahora"
+FROM auditoriacovisianperu.evaluaciones
+	INNER JOIN auditoriacovisianperu.llamadas ON 
+	 auditoriacovisianperu.evaluaciones.numero_orden = auditoriacovisianperu.llamadas.numero_orden 
+	INNER JOIN auditoriacovisianperu.empleados ON 
+	 auditoriacovisianperu.llamadas.dni_empleado = auditoriacovisianperu.empleados.dni_empleado 
+	 AND auditoriacovisianperu.evaluaciones.dni_empleado = auditoriacovisianperu.empleados.dni_empleado 
+	INNER JOIN auditoriacovisianperu.auditores ON 
+	 auditoriacovisianperu.evaluaciones.dni_auditor = auditoriacovisianperu.auditores.dni_auditor 
+	INNER JOIN auditoriacovisianperu.cliente ON 
+	 auditoriacovisianperu.llamadas.dni_cliente = auditoriacovisianperu.cliente.dni_cliente 
+WHERE 
+	 auditoriacovisianperu.llamadas.numero_orden = $P{nroOrden} 
+LIMIT 1]]>
+	</queryString>
+	<field name="evaluacion.auditor.apellidoAuditor" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="apellido_auditor"/>
+		<property name="com.jaspersoft.studio.field.label" value="evaluacion.auditor.apellidoAuditor"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="auditores"/>
+	</field>
+	<field name="evaluacion.auditor.nombreAuditor" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nombre_auditor"/>
+		<property name="com.jaspersoft.studio.field.label" value="evaluacion.auditor.nombreAuditor"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="auditores"/>
+	</field>
+	<field name="evaluacion.auditor.dniAuditor" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="dni_auditor"/>
+		<property name="com.jaspersoft.studio.field.label" value="evaluacion.auditor.dniAuditor"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="auditores"/>
+	</field>
+	<field name="empleado.dniEmpleado" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="dni_empleado"/>
+		<property name="com.jaspersoft.studio.field.label" value="empleado.dniEmpleado"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="empleados"/>
+	</field>
+	<field name="empleado.nombreEmpleado" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nombre_empleado"/>
+		<property name="com.jaspersoft.studio.field.label" value="empleado.nombreEmpleado"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="empleados"/>
+	</field>
+	<field name="empleado.area" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="area"/>
+		<property name="com.jaspersoft.studio.field.label" value="empleado.area"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="empleados"/>
+	</field>
+	<field name="empleado.apellidoEmpleado" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="apellido_empleado"/>
+		<property name="com.jaspersoft.studio.field.label" value="empleado.apellidoEmpleado"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="empleados"/>
+	</field>
+	<field name="numeroOrden" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="numero_orden"/>
+		<property name="com.jaspersoft.studio.field.label" value="numeroOrden"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="llamadas"/>
+	</field>
+	<field name="cliente.numeroCliente" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="numero_cliente"/>
+		<property name="com.jaspersoft.studio.field.label" value="cliente.numeroCliente"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="cliente"/>
+	</field>
+	<field name="estado" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="estado"/>
+		<property name="com.jaspersoft.studio.field.label" value="estado"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="llamadas"/>
+	</field>
+	<field name="cliente.dniCliente" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="dni_cliente"/>
+		<property name="com.jaspersoft.studio.field.label" value="cliente.dniCliente"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="cliente"/>
+	</field>
+	<field name="cliente.apellidoCliente" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="apellido_cliente"/>
+		<property name="com.jaspersoft.studio.field.label" value="cliente.apellidoCliente"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="cliente"/>
+	</field>
+	<field name="cliente.nombreCliente" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nombre_cliente"/>
+		<property name="com.jaspersoft.studio.field.label" value="cliente.nombreCliente"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="cliente"/>
+	</field>
+	<field name="area" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="area"/>
+		<property name="com.jaspersoft.studio.field.label" value="area"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="llamadas"/>
+	</field>
+	<field name="subarea" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="subarea"/>
+		<property name="com.jaspersoft.studio.field.label" value="subarea"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="llamadas"/>
+	</field>
+	<field name="tipo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="tipo"/>
+		<property name="com.jaspersoft.studio.field.label" value="tipo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="llamadas"/>
+	</field>
+	<field name="evaluacion.fechahora" class="java.time.LocalDateTime">
+		<property name="com.jaspersoft.studio.field.name" value="fechahora"/>
+		<property name="com.jaspersoft.studio.field.label" value="evaluacion.fechahora"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="evaluaciones"/>
+	</field>
+	<field name="evaluacion.nota" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="nota"/>
+		<property name="com.jaspersoft.studio.field.label" value="evaluacion.nota"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="evaluaciones"/>
+	</field>
+	<field name="evaluacion.observacionesEvaluacion" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="observaciones_evaluacion"/>
+		<property name="com.jaspersoft.studio.field.label" value="evaluacion.observacionesEvaluacion"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="evaluaciones"/>
+	</field>
+	<field name="fechahora" class="java.time.LocalDateTime">
+		<property name="com.jaspersoft.studio.field.name" value="fechahora"/>
+		<property name="com.jaspersoft.studio.field.label" value="fechahora"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="llamadas"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="60" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="60" forecolor="#39BF8E" uuid="9eae5a55-3abc-45ea-9184-f3063e68a925"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="22" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Informe de Auditoría de Llamada]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="730" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="30" forecolor="#FFFFFF" backcolor="#39BF8E" uuid="60a2ebf1-e985-4180-a261-aa84171a8169"/>
+				<box leftPadding="5">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Datos Auditor]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="80" y="30" width="475" height="30" uuid="2c2d9c2b-8f10-4665-8d5a-aef44e905b05"/>
+				<box leftPadding="5">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{evaluacion.auditor.dniAuditor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="60" width="475" height="30" uuid="f76a1b46-fc5b-4046-bcaa-0368c8f726ff"/>
+				<box leftPadding="5">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{evaluacion.auditor.nombreAuditor}+ " " + $F{evaluacion.auditor.apellidoAuditor}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="100" width="555" height="30" forecolor="#FFFFFF" backcolor="#39BF8E" uuid="37962cb4-793e-4185-ae80-a45e2bc9af43"/>
+				<box leftPadding="5">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Datos Empleado]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="140" y="130" width="415" height="30" uuid="97c75723-b24e-418f-afad-ce4dec3cb74d"/>
+				<box leftPadding="5">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{empleado.dniEmpleado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="140" y="160" width="415" height="30" uuid="243a9d1d-fb67-4f18-9f98-549894d0f61b"/>
+				<box leftPadding="5">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{empleado.nombreEmpleado} + " " + $F{empleado.apellidoEmpleado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="140" y="190" width="415" height="30" uuid="4d94391b-f842-4624-bb06-2fbae75e5b6d"/>
+				<box leftPadding="5">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{empleado.area}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="230" width="555" height="30" forecolor="#FFFFFF" backcolor="#39BF8E" uuid="380d0278-0956-4693-8115-16007e707617"/>
+				<box leftPadding="5">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Datos de la Llamada]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="180" y="260" width="375" height="30" uuid="cb981e6b-68a2-4708-975c-2493fd2102f5"/>
+				<box leftPadding="5">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numeroOrden}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="290" width="375" height="30" uuid="4948f649-6e0e-46f2-961d-15e6aa92c68b"/>
+				<box leftPadding="5">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cliente.numeroCliente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="320" width="375" height="30" uuid="4d143c87-58ac-47fe-877e-34fb1b0d2d66"/>
+				<box leftPadding="5">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cliente.dniCliente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="350" width="375" height="30" uuid="659b9a2b-4eb8-4590-9946-56622405bb6f"/>
+				<box leftPadding="5">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cliente.nombreCliente} + " " + $F{cliente.apellidoCliente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="380" width="375" height="30" uuid="8c1cfbb8-e518-4f0f-a77c-49e0401c145b"/>
+				<box leftPadding="5">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{estado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="410" width="375" height="30" uuid="242c76ad-d72a-481d-b402-a55ba4622349"/>
+				<box leftPadding="5">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tipo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="440" width="375" height="30" uuid="a01fa507-2df9-430b-a7f9-7fd4bae95303"/>
+				<box leftPadding="5">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{area}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="470" width="375" height="30" uuid="c97c4966-61bb-43d7-985c-f9b8a3171046"/>
+				<box leftPadding="5">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{subarea}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="500" width="375" height="30" uuid="486dcff6-3878-4e11-882a-7b36043bb032"/>
+				<box leftPadding="5">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fechahora}.format(java.time.format.DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"))]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="540" width="555" height="30" forecolor="#FFFFFF" backcolor="#39BF8E" uuid="41a6e646-b9cd-4019-9acc-103891db2ec9"/>
+				<box leftPadding="5">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Datos de la Evaluación]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="660" width="555" height="70" uuid="5d87c60d-9522-405c-b61e-3afc650801f7"/>
+				<box topPadding="5" leftPadding="5" bottomPadding="5">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Top">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{evaluacion.observacionesEvaluacion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="570" width="375" height="30" uuid="b35c1ff9-ac26-45e8-8ab5-f08381559a71"/>
+				<box leftPadding="5">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{evaluacion.nota}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="600" width="375" height="30" uuid="62c4f446-19d4-4ef2-8cea-9bd4d70867f4"/>
+				<box leftPadding="5">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{evaluacion.fechahora}.format(java.time.format.DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"))]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="30" width="80" height="30" backcolor="#77E0BB" uuid="6f1f1bba-1995-4eae-a5c8-bd6fc770033a"/>
+				<box leftPadding="5">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DNI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="60" width="80" height="30" backcolor="#77E0BB" uuid="def562fe-3620-4961-9019-77a316f2f490"/>
+				<box leftPadding="5">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Auditor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="130" width="140" height="30" backcolor="#77E0BB" uuid="912191b8-2d9a-47bf-94e6-13ea026b495e"/>
+				<box leftPadding="5">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DNI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="160" width="140" height="30" backcolor="#77E0BB" uuid="ebc6d2f8-08b2-416a-b5eb-d7190222f1dc"/>
+				<box leftPadding="5">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Empleado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="190" width="140" height="30" backcolor="#77E0BB" uuid="f6de5b44-9e16-4adf-bb3a-6207a5bca205"/>
+				<box leftPadding="5">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Área de Empleado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="260" width="180" height="30" backcolor="#77E0BB" uuid="4f864f00-f5c1-4e85-9e2c-e80636043a5d"/>
+				<box leftPadding="5">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nro. Orden]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="630" width="555" height="30" backcolor="#77E0BB" uuid="0db5efde-dc45-4c6a-bcab-b2d8c2e7af2f"/>
+				<box leftPadding="5">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Observaciones]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="320" width="180" height="30" backcolor="#77E0BB" uuid="c7f70b05-3bef-45a9-84ab-9532fc7ccb1e"/>
+				<box leftPadding="5">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DNI Cliente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="350" width="180" height="30" backcolor="#77E0BB" uuid="e5041d93-c588-4ea3-bd6a-dc6bc9efd2d9"/>
+				<box leftPadding="5">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cliente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="380" width="180" height="30" backcolor="#77E0BB" uuid="ba8131f5-1ec2-45ed-bd35-c2a553e516af"/>
+				<box leftPadding="5">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Estado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="410" width="180" height="30" backcolor="#77E0BB" uuid="ee3ab2fa-2e65-4028-aa6b-791712a0e942"/>
+				<box leftPadding="5">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tipo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="440" width="180" height="30" backcolor="#77E0BB" uuid="8cbf96f2-919b-49f4-9b76-38f0495c547d"/>
+				<box leftPadding="5">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Área]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="470" width="180" height="30" backcolor="#77E0BB" uuid="a69f2c3f-5f61-4dd8-a515-82677f5d34e2"/>
+				<box leftPadding="5">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Subárea]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="500" width="180" height="30" backcolor="#77E0BB" uuid="662a90f1-f622-461c-8aea-562f49278685"/>
+				<box leftPadding="5">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha y Hora Llamada]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="290" width="180" height="30" backcolor="#77E0BB" uuid="79d810ab-6caf-436f-ae08-da5be90a2afe"/>
+				<box leftPadding="5">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nro. Cliente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="570" width="180" height="30" backcolor="#77E0BB" uuid="c42a5d3d-3efb-4985-b449-7401c6278961"/>
+				<box leftPadding="5">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nota]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="600" width="180" height="30" backcolor="#77E0BB" uuid="289e275c-b50f-4457-9e16-9b3eea635598"/>
+				<box leftPadding="5">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha y Hora Auditoría]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>
